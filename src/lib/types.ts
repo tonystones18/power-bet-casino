@@ -4,6 +4,7 @@ export interface Game {
   provider: string;
   category: GameCategory;
   thumbnail: string;
+  imageUrl?: string;
   rtp: number;
   isNew?: boolean;
   isHot?: boolean;

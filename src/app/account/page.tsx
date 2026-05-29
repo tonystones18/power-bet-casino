@@ -65,7 +65,7 @@ export default function AccountPage() {
           {[
             { label: "Balance", value: `$${user.balance.toFixed(2)}`, icon: Wallet, color: "text-brand-gold" },
             { label: "Bonus Balance", value: `$${user.bonusBalance?.toFixed(2) || "0.00"}`, icon: Crown, color: "text-purple-400" },
-            { label: "Loyalty Points", value: (user.loyaltyPoints || 0).toLocaleString(), icon: TrendingUp, color: "text-green-400" },
+            { label: "Loyalty Points", value: (user.loyaltyPoints || 0).toLocaleString('en-US'), icon: TrendingUp, color: "text-green-400" },
             { label: "Lifetime Wins", value: "$4,820", icon: TrendingUp, color: "text-blue-400" },
           ].map((card) => {
             const Icon = card.icon;
@@ -102,8 +102,8 @@ export default function AccountPage() {
               />
             </div>
             <div className="flex justify-between text-xs text-white/30 mt-1.5">
-              <span>{points.toLocaleString()} pts</span>
-              <span>{nextLevel.minPoints.toLocaleString()} pts needed</span>
+              <span>{points.toLocaleString('en-US')} pts</span>
+              <span>{nextLevel.minPoints.toLocaleString('en-US')} pts needed</span>
             </div>
           </div>
         )}
@@ -173,3 +173,4 @@ export default function AccountPage() {
     </div>
   );
 }
+

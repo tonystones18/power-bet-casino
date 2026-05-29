@@ -3,8 +3,10 @@ import "./globals.css";
 import { Providers } from "@/components/Providers";
 import Navbar from "@/components/layout/Navbar";
 import Sidebar from "@/components/layout/Sidebar";
+import MobileNav from "@/components/layout/MobileNav";
 import Footer from "@/components/layout/Footer";
 import Notifications from "@/components/ui/Notifications";
+import ChatButton from "@/components/ui/ChatButton";
 import AuthModals from "@/components/auth/AuthModals";
 
 export const metadata: Metadata = {
@@ -40,10 +42,13 @@ export default function RootLayout({
             <Sidebar />
             <div className="flex-1 flex flex-col min-w-0">
               <Navbar />
-              <main className="flex-1">{children}</main>
+              {/* Add bottom padding on mobile for MobileNav */}
+              <main className="flex-1 pb-20 lg:pb-0">{children}</main>
               <Footer />
             </div>
           </div>
+          <MobileNav />
+          <ChatButton />
           <Notifications />
           <AuthModals />
         </Providers>
@@ -51,3 +56,4 @@ export default function RootLayout({
     </html>
   );
 }
+

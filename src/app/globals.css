@@ -2,8 +2,8 @@
 @config "../../tailwind.config.ts";
 
 :root {
-  --scrollbar-bg: #12121a;
-  --scrollbar-thumb: #2a2a3a;
+  --scrollbar-bg: #13133A;
+  --scrollbar-thumb: #2a2a5a;
   --scrollbar-thumb-hover: #f5c518;
 }
 
@@ -16,7 +16,7 @@ html {
 }
 
 body {
-  background-color: #0a0a0f;
+  background-color: #0d0d1f;
   color: #ffffff;
   font-family: Inter, sans-serif;
   -webkit-font-smoothing: antialiased;

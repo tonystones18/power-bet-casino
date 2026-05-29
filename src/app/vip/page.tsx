@@ -83,7 +83,7 @@ export default function VIPPage() {
                 <div className="text-3xl mb-2">{level.icon}</div>
                 <h3 className={clsx("font-black text-lg", textColors[level.name])}>{level.name}</h3>
                 <p className="text-xs text-white/40 mt-1 mb-4">
-                  {level.minPoints.toLocaleString()}+ pts
+                  {level.minPoints.toLocaleString('en-US')}+ pts
                 </p>
                 <ul className="space-y-1.5 text-left">
                   {level.benefits.slice(0, 4).map((b) => (
@@ -147,3 +147,4 @@ export default function VIPPage() {
     </div>
   );
 }
+

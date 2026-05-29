@@ -71,16 +71,16 @@ export default function HistoryPage() {
         <div className="grid grid-cols-3 gap-3 mb-6">
           <div className="bg-green-900/10 border border-green-900/20 rounded-xl p-4">
             <p className="text-xs text-white/40 mb-1">Total In</p>
-            <p className="text-green-400 font-black text-lg">${totalIn.toLocaleString()}</p>
+            <p className="text-green-400 font-black text-lg">${totalIn.toLocaleString('en-US')}</p>
           </div>
           <div className="bg-brand-red/10 border border-brand-red/20 rounded-xl p-4">
             <p className="text-xs text-white/40 mb-1">Total Out</p>
-            <p className="text-brand-red font-black text-lg">${totalOut.toLocaleString()}</p>
+            <p className="text-brand-red font-black text-lg">${totalOut.toLocaleString('en-US')}</p>
           </div>
           <div className={clsx("rounded-xl p-4 border", net >= 0 ? "bg-brand-gold/10 border-brand-gold/20" : "bg-brand-red/10 border-brand-red/20")}>
             <p className="text-xs text-white/40 mb-1">Net P&L</p>
             <p className={clsx("font-black text-lg", net >= 0 ? "text-brand-gold" : "text-brand-red")}>
-              {net >= 0 ? "+" : ""}${net.toLocaleString()}
+              {net >= 0 ? "+" : ""}${net.toLocaleString('en-US')}
             </p>
           </div>
         </div>
@@ -145,3 +145,4 @@ export default function HistoryPage() {
     </div>
   );
 }
+

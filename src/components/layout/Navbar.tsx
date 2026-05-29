@@ -36,37 +36,22 @@ export default function Navbar() {
   const [searchOpen, setSearchOpen] = useState(false);
 
   const notifications = [
-    {
-      id: 1,
-      msg: "Your withdrawal of $250 has been processed",
-      time: "2 min ago",
-      type: "success",
-    },
-    {
-      id: 2,
-      msg: "New promotion: 50 Free Spins on Gates of Olympus!",
-      time: "1 hr ago",
-      type: "info",
-    },
-    {
-      id: 3,
-      msg: "You've reached Gold VIP status 🥇",
-      time: "3 hr ago",
-      type: "success",
-    },
+    { id: 1, msg: "Your withdrawal of $250 has been processed", time: "2 min ago", type: "success" },
+    { id: 2, msg: "New promotion: 50 Free Spins on Gates of Olympus!", time: "1 hr ago", type: "info" },
+    { id: 3, msg: "You've reached Gold VIP status 🥇", time: "3 hr ago", type: "success" },
   ];
 
   return (
-    <header className="sticky top-0 z-30 bg-brand-dark-2/95 backdrop-blur-lg border-b border-white/5 h-16 flex items-center px-4 gap-4">
+    <header className="sticky top-0 z-30 bg-brand-dark-sidebar/95 backdrop-blur-xl border-b border-white/[0.07] h-16 flex items-center px-4 gap-3">
       {/* Mobile menu toggle */}
       <button
         onClick={toggleSidebar}
-        className="lg:hidden text-white/70 hover:text-white transition-colors"
+        className="lg:hidden text-white/60 hover:text-white transition-colors p-1"
       >
-        <Menu className="w-6 h-6" />
+        <Menu className="w-5 h-5" />
       </button>
 
-      {/* Logo (mobile) */}
+      {/* Logo (mobile only) */}
       <Link
         href="/"
         className="lg:hidden flex items-center gap-1.5 font-black text-lg"
@@ -75,24 +60,24 @@ export default function Navbar() {
         POWER<span className="text-brand-gold">.BET</span>
       </Link>
 
-      {/* Search */}
+      {/* Search — desktop */}
       <div className="hidden md:flex flex-1 max-w-sm relative">
         <div className="relative w-full">
-          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
+          <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/25" />
           <input
             type="text"
             placeholder="Search games..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full bg-white/5 border border-white/10 rounded-lg pl-9 pr-4 py-2 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-brand-gold/50 transition-colors"
+            className="w-full bg-white/[0.06] border border-white/[0.08] rounded-xl pl-9 pr-4 py-2 text-sm text-white placeholder:text-white/25 focus:outline-none focus:border-brand-gold/40 transition-colors"
           />
         </div>
       </div>
 
-      {/* Mobile search */}
+      {/* Mobile search toggle */}
       <button
         onClick={() => setSearchOpen(!searchOpen)}
-        className="md:hidden text-white/70 hover:text-white"
+        className="md:hidden text-white/60 hover:text-white p-1"
       >
         {searchOpen ? <X className="w-5 h-5" /> : <Search className="w-5 h-5" />}
       </button>
@@ -104,9 +89,9 @@ export default function Navbar() {
         {isLoggedIn && user ? (
           <>
             {/* Balance */}
-            <div className="hidden sm:flex items-center gap-1.5 bg-white/5 border border-white/10 rounded-lg px-3 py-2">
-              <Wallet className="w-4 h-4 text-brand-gold" />
-              <span className="text-sm font-semibold text-brand-gold">
+            <div className="hidden sm:flex items-center gap-1.5 bg-white/[0.06] border border-white/[0.09] rounded-xl px-3 py-2">
+              <Wallet className="w-3.5 h-3.5 text-brand-gold" />
+              <span className="text-sm font-bold text-brand-gold">
                 ${user.balance.toFixed(2)}
               </span>
             </div>
@@ -114,7 +99,7 @@ export default function Navbar() {
             {/* Deposit button */}
             <Link
               href="/account/deposit"
-              className="hidden sm:flex items-center gap-1.5 bg-gold-gradient text-black rounded-lg px-3 py-2 text-sm font-bold hover:opacity-90 transition-opacity"
+              className="hidden sm:flex items-center gap-1.5 bg-gold-gradient text-black rounded-xl px-4 py-2 text-sm font-bold hover:opacity-90 transition-opacity shadow-gold"
             >
               + Deposit
             </Link>
@@ -122,14 +107,11 @@ export default function Navbar() {
             {/* Notifications */}
             <div className="relative">
               <button
-                onClick={() => {
-                  setShowNotifications(!showNotifications);
-                  setShowUserMenu(false);
-                }}
-                className="relative w-9 h-9 flex items-center justify-center rounded-lg bg-white/5 hover:bg-white/10 text-white/70 hover:text-white transition-colors"
+                onClick={() => { setShowNotifications(!showNotifications); setShowUserMenu(false); }}
+                className="relative w-9 h-9 flex items-center justify-center rounded-xl bg-white/[0.06] hover:bg-white/10 text-white/60 hover:text-white transition-colors"
               >
                 <Bell className="w-4 h-4" />
-                <span className="absolute top-1 right-1 w-2 h-2 rounded-full bg-brand-red" />
+                <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 rounded-full bg-brand-red" />
               </button>
               <AnimatePresence>
                 {showNotifications && (
@@ -137,24 +119,14 @@ export default function Navbar() {
                     initial={{ opacity: 0, y: 8, scale: 0.96 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 8, scale: 0.96 }}
-                    className="absolute right-0 top-12 w-80 bg-brand-dark-3 border border-white/10 rounded-xl shadow-card overflow-hidden"
+                    className="absolute right-0 top-12 w-80 bg-brand-dark-3 border border-white/10 rounded-2xl shadow-card overflow-hidden z-50"
                   >
-                    <div className="px-4 py-3 border-b border-white/5 flex justify-between items-center">
-                      <span className="font-semibold text-sm">
-                        Notifications
-                      </span>
-                      <button
-                        onClick={() => setShowNotifications(false)}
-                        className="text-white/40 hover:text-white"
-                      >
-                        <X className="w-4 h-4" />
-                      </button>
+                    <div className="px-4 py-3 border-b border-white/[0.07] flex justify-between items-center">
+                      <span className="font-semibold text-sm">Notifications</span>
+                      <button onClick={() => setShowNotifications(false)} className="text-white/40 hover:text-white"><X className="w-4 h-4" /></button>
                     </div>
                     {notifications.map((n) => (
-                      <div
-                        key={n.id}
-                        className="px-4 py-3 hover:bg-white/5 cursor-pointer border-b border-white/5 last:border-0"
-                      >
+                      <div key={n.id} className="px-4 py-3 hover:bg-white/5 cursor-pointer border-b border-white/[0.05] last:border-0">
                         <p className="text-sm text-white/80">{n.msg}</p>
                         <p className="text-xs text-white/30 mt-1">{n.time}</p>
                       </div>
@@ -167,24 +139,16 @@ export default function Navbar() {
             {/* User menu */}
             <div className="relative">
               <button
-                onClick={() => {
-                  setShowUserMenu(!showUserMenu);
-                  setShowNotifications(false);
-                }}
-                className="flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded-lg px-3 py-2 transition-colors"
+                onClick={() => { setShowUserMenu(!showUserMenu); setShowNotifications(false); }}
+                className="flex items-center gap-2 bg-white/[0.06] hover:bg-white/10 border border-white/[0.09] rounded-xl px-2.5 py-2 transition-colors"
               >
-                <div className="w-6 h-6 rounded-full bg-gold-gradient flex items-center justify-center text-black text-xs font-bold">
+                <div className="w-7 h-7 rounded-full bg-gold-gradient flex items-center justify-center text-black text-xs font-bold">
                   {user.username[0].toUpperCase()}
                 </div>
-                <span className="hidden sm:block text-sm font-medium">
+                <span className="hidden sm:block text-sm font-medium max-w-[80px] truncate">
                   {user.username}
                 </span>
-                <ChevronDown
-                  className={clsx(
-                    "w-3 h-3 text-white/40 transition-transform",
-                    showUserMenu && "rotate-180"
-                  )}
-                />
+                <ChevronDown className={clsx("w-3 h-3 text-white/40 transition-transform", showUserMenu && "rotate-180")} />
               </button>
 
               <AnimatePresence>
@@ -193,55 +157,32 @@ export default function Navbar() {
                     initial={{ opacity: 0, y: 8, scale: 0.96 }}
                     animate={{ opacity: 1, y: 0, scale: 1 }}
                     exit={{ opacity: 0, y: 8, scale: 0.96 }}
-                    className="absolute right-0 top-12 w-52 bg-brand-dark-3 border border-white/10 rounded-xl shadow-card overflow-hidden"
+                    className="absolute right-0 top-12 w-56 bg-brand-dark-3 border border-white/10 rounded-2xl shadow-card overflow-hidden z-50"
                   >
-                    <div className="px-4 py-3 border-b border-white/5">
+                    <div className="px-4 py-3 border-b border-white/[0.07]">
                       <p className="text-sm font-semibold">{user.username}</p>
                       <p className="text-xs text-white/40">{user.email}</p>
                       <div className="mt-2 flex items-center gap-2">
-                        <span className="text-xs text-brand-gold font-semibold">
-                          {user.vipLevel} VIP
-                        </span>
-                        <span className="text-xs text-white/30">
-                          {user.loyaltyPoints || 0} pts
-                        </span>
+                        <span className="text-xs bg-brand-gold/15 text-brand-gold px-2 py-0.5 rounded-full font-semibold border border-brand-gold/20">{user.vipLevel} VIP</span>
+                        <span className="text-xs text-white/30">{user.loyaltyPoints || 0} pts</span>
                       </div>
                     </div>
                     {[
                       { href: "/account", icon: User, label: "My Account" },
-                      {
-                        href: "/account/deposit",
-                        icon: Wallet,
-                        label: "Deposit",
-                      },
-                      {
-                        href: "/account/history",
-                        icon: History,
-                        label: "History",
-                      },
-                      {
-                        href: "/account/settings",
-                        icon: Settings,
-                        label: "Settings",
-                      },
+                      { href: "/account/deposit", icon: Wallet, label: "Deposit" },
+                      { href: "/account/history", icon: History, label: "History" },
+                      { href: "/account/settings", icon: Settings, label: "Settings" },
                     ].map((item) => (
-                      <Link
-                        key={item.href}
-                        href={item.href}
-                        onClick={() => setShowUserMenu(false)}
-                        className="flex items-center gap-3 px-4 py-2.5 hover:bg-white/5 text-sm text-white/70 hover:text-white transition-colors"
-                      >
+                      <Link key={item.href} href={item.href} onClick={() => setShowUserMenu(false)}
+                        className="flex items-center gap-3 px-4 py-2.5 hover:bg-white/[0.06] text-sm text-white/65 hover:text-white transition-colors">
                         <item.icon className="w-4 h-4" />
                         {item.label}
                       </Link>
                     ))}
-                    <div className="border-t border-white/5">
+                    <div className="border-t border-white/[0.07]">
                       <button
-                        onClick={() => {
-                          logout();
-                          setShowUserMenu(false);
-                        }}
-                        className="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-white/5 text-sm text-brand-red hover:text-red-400 transition-colors"
+                        onClick={() => { logout(); setShowUserMenu(false); }}
+                        className="w-full flex items-center gap-3 px-4 py-2.5 hover:bg-white/[0.06] text-sm text-brand-red hover:text-red-400 transition-colors"
                       >
                         <LogOut className="w-4 h-4" />
                         Sign Out
@@ -256,13 +197,13 @@ export default function Navbar() {
           <>
             <button
               onClick={() => setShowLoginModal(true)}
-              className="text-sm font-medium text-white/80 hover:text-white px-3 py-2 transition-colors"
+              className="text-sm font-medium text-white/70 hover:text-white px-3 py-2 transition-colors"
             >
               Log In
             </button>
             <button
               onClick={() => setShowRegisterModal(true)}
-              className="bg-gold-gradient text-black text-sm font-bold px-4 py-2 rounded-lg hover:opacity-90 transition-opacity"
+              className="bg-gold-gradient text-black text-sm font-bold px-4 py-2 rounded-xl hover:opacity-90 transition-opacity shadow-gold"
             >
               Register
             </button>
@@ -277,7 +218,7 @@ export default function Navbar() {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="absolute top-16 left-0 right-0 bg-brand-dark-2 border-b border-white/10 px-4 py-3 md:hidden"
+            className="absolute top-16 left-0 right-0 bg-brand-dark-sidebar border-b border-white/[0.07] px-4 py-3 md:hidden z-20"
           >
             <div className="relative">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-white/30" />
@@ -287,7 +228,7 @@ export default function Navbar() {
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 autoFocus
-                className="w-full bg-white/5 border border-white/10 rounded-lg pl-9 pr-4 py-2 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-brand-gold/50"
+                className="w-full bg-white/[0.06] border border-white/[0.08] rounded-xl pl-9 pr-4 py-2 text-sm text-white placeholder:text-white/30 focus:outline-none focus:border-brand-gold/50"
               />
             </div>
           </motion.div>
@@ -296,3 +237,4 @@ export default function Navbar() {
     </header>
   );
 }
+

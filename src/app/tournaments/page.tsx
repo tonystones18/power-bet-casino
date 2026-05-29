@@ -167,7 +167,7 @@ export default function TournamentsPage() {
               </div>
               <div className="flex justify-between">
                 <span className="text-white/40 text-sm">Players</span>
-                <span className="font-semibold flex items-center gap-1"><Users className="w-3 h-3" />{tournament.players.toLocaleString()} / {tournament.maxPlayers.toLocaleString()}</span>
+                <span className="font-semibold flex items-center gap-1"><Users className="w-3 h-3" />{tournament.players.toLocaleString('en-US')} / {tournament.maxPlayers.toLocaleString('en-US')}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-white/40 text-sm">Sponsor</span>
@@ -226,7 +226,7 @@ export default function TournamentsPage() {
                         {entry.rank <= 3 ? ["🥇", "🥈", "🥉"][entry.rank - 1] : `#${entry.rank}`}
                       </span>
                       <span className="flex-1 font-semibold text-sm">{entry.username}</span>
-                      <span className="text-sm text-white/40">{entry.score.toLocaleString()} pts</span>
+                      <span className="text-sm text-white/40">{entry.score.toLocaleString('en-US')} pts</span>
                       <span className="font-bold text-brand-gold text-sm">{entry.prize}</span>
                     </div>
                   );
@@ -252,3 +252,4 @@ export default function TournamentsPage() {
     </div>
   );
 }
+
