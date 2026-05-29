@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { motion, AnimatePresence } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 import {
   Gamepad2,
   Trophy,
@@ -65,17 +65,11 @@ export default function Sidebar() {
       </AnimatePresence>
 
       {/* Sidebar */}
-      <motion.aside
-        initial={false}
-        animate={{
-          x: sidebarOpen ? 0 : "-100%",
-          width: sidebarOpen ? 240 : 240,
-        }}
+      <aside
         className={clsx(
-          "fixed lg:static top-0 left-0 h-full z-50 lg:z-auto",
-          "bg-brand-dark-sidebar border-r border-white/5 flex flex-col",
-          "w-60 shrink-0",
-          "lg:translate-x-0 transition-transform duration-300",
+          "fixed lg:static top-0 left-0 h-full lg:h-auto z-50 lg:z-auto",
+          "bg-brand-dark-sidebar border-r border-white/[0.07] flex flex-col",
+          "w-60 shrink-0 transition-transform duration-300 ease-in-out",
           sidebarOpen ? "translate-x-0" : "-translate-x-full lg:translate-x-0"
         )}
       >
@@ -181,7 +175,7 @@ export default function Sidebar() {
             </Link>
           </div>
         </div>
-      </motion.aside>
+      </aside>
     </>
   );
 }

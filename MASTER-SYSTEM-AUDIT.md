@@ -1,7 +1,7 @@
 # MASTER-SYSTEM-AUDIT.md
 **Project:** POWER.BET — Online Casino & Sports Betting Platform  
-**Version:** v1.1.0  
-**Last Updated:** v1.1.0  
+**Version:** v1.2.0  
+**Last Updated:** v1.2.0  
 **GitHub:** https://github.com/tonystones18/power-bet-casino  
 **Stack:** Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · Zustand · Framer Motion
 
@@ -230,6 +230,21 @@ interface User {
 ---
 
 ## CHANGE LOG
+
+### v1.2.0 — 2025 | Sidebar Fix + Real Game Images
+
+| Item | Status | Completion |
+|---|---|---|
+| `Sidebar.tsx` — CRITICAL FIX: replaced Framer Motion `motion.aside` with CSS transitions to fix sidebar invisible on desktop (sidebarOpen:false + animate overriding lg:translate-x-0) | 🟢 Complete | 100% |
+| `data.ts` — added `imageUrl` field to all 21 games using picsum.photos with unique seeds per game | 🟢 Complete | 100% |
+| `next.config.ts` — added demo.pragmaticplay.net to remotePatterns | 🟢 Complete | 100% |
+| Production build — 0 TypeScript errors, all 16 routes passing | 🟢 Complete | 100% |
+| GitHub push | 🟢 Complete | 100% |
+
+**Commit:** TBD  
+**Repo:** https://github.com/tonystones18/power-bet-casino
+
+---
 
 ### v1.1.0 — 2025 | Figma Design Implementation
 
