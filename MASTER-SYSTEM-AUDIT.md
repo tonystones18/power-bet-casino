@@ -1,7 +1,7 @@
 # MASTER-SYSTEM-AUDIT.md
 **Project:** POWER.BET — Online Casino & Sports Betting Platform  
-**Version:** v1.0.0  
-**Last Updated:** v1.0.0  
+**Version:** v1.1.0  
+**Last Updated:** v1.1.0  
 **GitHub:** https://github.com/tonystones18/power-bet-casino  
 **Stack:** Next.js 16 (App Router) · TypeScript · Tailwind CSS v4 · Zustand · Framer Motion
 
@@ -230,6 +230,30 @@ interface User {
 ---
 
 ## CHANGE LOG
+
+### v1.1.0 — 2025 | Figma Design Implementation
+
+| Item | Status | Completion |
+|---|---|---|
+| `tailwind.config.ts` — purple/navy color scheme (#0D0D1F, #0F0F2E, #181840) | 🟢 Complete | 100% |
+| `globals.css` — body bg #0d0d1f, purple scrollbar colors | 🟢 Complete | 100% |
+| `Sidebar.tsx` — fully rewritten to match Figma (dark-sidebar bg, gold active states, badges) | 🟢 Complete | 100% |
+| `Navbar.tsx` — fully rewritten (backdrop blur, rounded elements, VIP badge, wallet icon) | 🟢 Complete | 100% |
+| `MobileNav.tsx` — NEW: mobile bottom tab bar (Home/Casino/Sports/Promos/Profile) | 🟢 Complete | 100% |
+| `ChatButton.tsx` — NEW: floating green support chat button with mini panel | 🟢 Complete | 100% |
+| `layout.tsx` — MobileNav + ChatButton integrated, pb-20 lg:pb-0 mobile clearance | 🟢 Complete | 100% |
+| `types.ts` — imageUrl field added to Game interface | 🟢 Complete | 100% |
+| `GameCard.tsx` — rewritten: next/image support, favorites, hover overlay Play/Demo | 🟢 Complete | 100% |
+| `next.config.ts` — remotePatterns for picsum.photos, unsplash, softswiss, cdnpw | 🟢 Complete | 100% |
+| `casino/page.tsx` — redesigned: promo banners, category tabs, sort/provider dropdowns | 🟢 Complete | 100% |
+| `page.tsx` (homepage) — redesigned: promo banner row, purple hero, improved layout | 🟢 Complete | 100% |
+| Production build — 0 TypeScript errors, all 16 routes passing | 🟢 Complete | 100% |
+| GitHub push | 🟢 Complete | 100% |
+
+**Commit:** `f45ef71` — feat: match Figma design — purple/navy theme, mobile nav, chat button, casino/homepage redesign  
+**Repo:** https://github.com/tonystones18/power-bet-casino
+
+---
 
 ### v1.0.0 — 2025 | Initial Complete Release
 
